@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    StackAndQueue/PathName
+    StackAndQueue/PathName \
+    StackAndQueue/BSTKeys/BSTKeys
