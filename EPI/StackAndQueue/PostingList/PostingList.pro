@@ -1,0 +1,2 @@
+SOURCES += \
+    postinglist.cpp
