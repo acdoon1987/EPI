@@ -4,4 +4,7 @@ SUBDIRS += \
     StackAndQueue/PathName \
     StackAndQueue/BSTKeys/BSTKeys \
     StackAndQueue/PostingList \
-    SunsetView
+    SunsetView \
+    ComputeBTNodes \
+    CQueue \
+    BinaryTree/BinaryTrees
