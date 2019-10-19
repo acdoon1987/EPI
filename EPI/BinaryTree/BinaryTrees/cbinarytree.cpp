@@ -119,6 +119,47 @@ CBinaryTree::BinaryTreeNode* CBinaryTree<T>::findMinNode(BinaryTreeNode<T> * nod
 }
 
 template<typename T>
+bool CBinaryTree::findNode(CBinaryTree::BinaryTreeNode *node, CBinaryTree::BinaryTreeNode *_find,std::vector<BinaryTreeNode*> nodelist )
+{
+    if(node == nullptr)
+        return false;
+     nodelist.push_back(node);
+    if(node->data == _find->data)
+        return true;
+     if(findNode(node->left,_find, nodelist) ||findNode(node->right,_find, nodelist))
+         return true;
+
+    nodelist.pop_back();
+    return false;
+
+}
+
+template<typename T>
+CBinaryTree::BinaryTreeNode *CBinaryTree<T>::LCA(CBinaryTree::BinaryTreeNode *node1, CBinaryTree::BinaryTreeNode *node2)
+{
+  if(node1 == nullptr || node2 == nullptr)
+      return nullptr;
+  std::vector<BinaryTreeNode*> node1_path,node2_path;
+  bool node1found = findNode(root,node1,node1_path);
+  bool node2found = findNode(root,node1,node1_path);
+
+  if(node1found &&  node2found) {
+
+      for( int i=0; i <= std::min(node1_path.size(),node2_path.size());i++){
+
+          if(node1_path[i]->data!= node2_path[i]->data)
+          {
+              if(i>0){
+                  return node1_path[i-1];
+              }
+          }
+      }
+
+  }
+  return nullptr;
+}
+
+template<typename T>
 std::pair<bool,int> CBinaryTree::checkBalanced(BinaryTreeNode<T> * node)
 {
     if(node == nullptr)

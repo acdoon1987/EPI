@@ -1,6 +1,7 @@
 #ifndef CBINARYTREE_H
 #define CBINARYTREE_H
 #include <algorithm>
+#include <vector>
 template<typename T>
 class CBinaryTree
 {
@@ -9,7 +10,7 @@ public:
   void  insert(T data);
   bool  IsBalanced();
   void remove(T data);
-
+BinaryTreeNode* LCA(BinaryTreeNode* node1, BinaryTreeNode* node2);
 private:
     template<typename T>
     class BinaryTreeNode
@@ -27,6 +28,8 @@ private:
    BinaryTreeNode*  insert(BinaryTreeNode<T>* , T);
    BinaryTreeNode* removeNode(BinaryTreeNode<T>*,T );
    BinaryTreeNode* findMinNode(BinaryTreeNode<T>*);
+   bool findNode(BinaryTreeNode*node , BinaryTreeNode* _find, std::vector<BinaryTreeNode*> nodelist );
+
 
 };
 #include<cbinarytree.cpp>
